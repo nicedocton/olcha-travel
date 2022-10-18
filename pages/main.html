@@ -10,24 +10,33 @@
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-	<body style="display: block">
+	<body class="noscroll">
   
     <div class="rotate">
       <img src="images/rotate.png" alt="Rotate your device">
       <p>Rotate your device</p>
     </div>
 
-    <div id="topbar">
-      <a href="#" title="PORSCHEvolution by Ondrej Homola">
-        <div id="logo" class="wrapper">
-          <div class="new-logo"><span>PORSCHE</span>volution</div>
-    
+    <!-- Лоадер -->
+    <div class="main-loader">
+      <div class="transform">
+        <div class="transform">
+          <div class="loader-dots">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <div class="landingpage-interaction">
+            <button class="button0 disabled" data-slide="0" title="Начать путешествие">
+              <input id="round" class="btn" type="submit" value="0%">
+            </button>
+          </div>
         </div>
-      </a>
-      <a href="http://www.ondrejhomola.com" title="Check out Ondrej Homola's portfolio" target="_blank">
-        <div id="author"><div>© Ondrej Homola</div></div>
-      </a>
+      </div>
     </div>
+    <!-- Конец лоадера -->
   
     <!-- Шапка сайта -->
     <header class="header">
@@ -52,10 +61,31 @@
       </div>
     </header>
     <!-- Конец шапки сайта -->
+
+    <!-- Футер сайта -->
+    <footer class="footer">
+      <div class="footer__inner _container">
+        <div class="footer__copy">
+          &copy; 2022 HappyHour
+          <a href="#">Privacy</a>
+          <a href="#">Help</a>
+        </div>
+        <div class="footer__lang lang">
+          <a class="lang__btn" href="#">Ру</a>
+          <ul>
+            <li><a href="#">Uz</a></li>
+            <li><a href="#">Уз</a></li>
+            <li><a href="#" class="_active">Ру</a></li>
+            <li><a href="#">En</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <!-- Конец футера сайта -->
     
     <!-- Навигация -->
     <ul class="navigation" style="display: none;">
-      <li data-slide="0" style="display: none; color: transparent; border-bottom: 0 transparent;" class="dark-menu active"></li>
+      <li data-slide="0" style="color: transparent; border-bottom: 0 transparent;" class="dark-menu active"></li>
       <li data-slide="1" class="dark-menu" style="color: transparent; border-bottom: transparent;">Intro</li>
       <li data-slide="2" class="dark-menu" style="color: transparent; border-bottom: transparent;">1930<span>s</span></li>
       <li data-slide="3" class="dark-menu" style="color: transparent; border-bottom: transparent;">1940<span>s</span></li>
@@ -68,13 +98,13 @@
       <div style="background: url('../img/icons/mute_off.png') center center no-repeat;"></div>
       <div class="tooltiptext">
         <div class="arrow-left" style="background: url('../img/icons/mute_off.png') center center no-repeat;"></div>
-        Turning off music kills a half of the experience ;)
+        Отключение музыки убивает половину ощущений ;)
       </div>
     </div>
     <!-- Конец блока плеера -->
 
     <!-- Главный экран -->
-    <div class="slide" id="slide0" data-slide="0">
+    <section class="slide" id="slide0" data-slide="0">
       <div class="section-inner _container">
         <div class="content">
           <h1 class="h1">ТОП-5 самых красивых путешествий:</h1>
@@ -88,33 +118,30 @@
             <button class="btn">Другая страна</button>
           </div>
         </div>
-    
-        <div class="landingpage-interaction">
-          <a class="button0" data-slide="1" title="START EXPERIENCE">
-            <input id="round" class="" type="submit" value="START EXPERIENCE">
-          </a>
-        </div>
-    
-        <audio id="start" class="active">
-          <source src="../sounds/turkish.mp3" type="audio/mpeg">
-        </audio>
       </div>
-    </div>
+      <audio id="start" class="active">
+        <source src="../sounds/ocean.mp3" type="audio/mpeg">
+      </audio>
+    </section>
     <!-- Конец главного экрана -->
     
     <section class="slide" id="slide1" data-slide="1">
-      <div class="section-inner">
-        <div class="year" style="display: block;">
-          <div class="year-inner">Ferdinand Porsche</div>
-          <hr>
-          <div class="year-desc">
-            The history of Porsche goes back to 1875 - the birth year of Ferdinand Porsche. It is he who laid the foundations for a unique company with strong ideals.
+      <div class="section-inner _container">
+        <div class="content">
+          <h1 class="h1">ТОП-5 самых красивых путешествий:</h1>
+          <div class="btn-links">
+            <button class="btn">Египет</button>
+            <button class="btn">Турция</button>
+            <button class="btn">ОАЭ</button>
+            <button class="btn">Вьетнам</button>
+            <button class="btn">Грузия</button>
+            <button class="btn">Европа</button>
+            <button class="btn">Другая страна</button>
           </div>
         </div>
       </div>
       <audio id="1920s" class="">
-        <source src="../sounds/1920.ogg" type="audio/ogg">
-        <source src="../sounds/1920.mp3" type="audio/mpeg">
+        <source src="../sounds/turkish.mp3" type="audio/mpeg">
       </audio>
       <a class="button" data-slide="2" title="" style="display: none;"></a>
     </section>

@@ -26,10 +26,9 @@ $(document).ready(function () {
 	slide0 = $('#slide0');
 	slide0.waypoint(function (event, direction) {
 		if (direction === 'down') {
-			// htmlbody.animate({
-			// 	scrollTop: $('.slide[data-slide="' + 1 + '"]').offset().top
-			// }, 2000, 'easeInOutQuint');
-			console.log(event, direction)
+			$('#slide0 audio').trigger("pause").removeClass('active').animate({
+				volume: 1
+			}, 1000);
 		}
 	});
 	

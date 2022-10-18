@@ -47,93 +47,195 @@
 
 //<SELECT (sel+tab)>====================================================================================================
 .select {
-	position: relative;
-	// .select__item
-	&__item {
-		position: relative;
-	}
-	// .select__title
-	&__title {
-		color: #000;
-		border: 1px solid #d9d9d9;
-		background-color: #fff;
-		cursor: pointer;
-		border-radius: 4px;
-		@media (max-width: 1024px) {
-			font-size: 18px;
-		}
-	}
-	// .select__value
-	&__value {
-		display: flex;
-		font-size: 14px;
-		height: 30px;
-		padding: 0px 15px;
-		align-items: center;
-		justify-content: space-between;
-		flex-direction: row-reverse;
-		span {
-			height: 1em;
-			overflow: hidden;
-			display: -webkit-box;
-			-webkit-line-clamp: 1;
-			-webkit-box-orient: vertical;
-		}
-		&:before {
-			content: "";
-			display: inline-block;
-			transition: all 0.3s ease 0s;
-			width: 11px;
-			height: 7px;
-			background: url("../img/icons/select.svg") center / 100% no-repeat;
-		}
-	}
-	&__input {
-		width: 100%;
-		background-color: transparent;
-		height: 100%;
-	}
-	// .select__options
-	&__options {
-		color: #000;
-		display: none;
-		position: absolute;
-		top: 29px;
-		border-radius: 0 0 4px 4px;
-		min-width: 100%;
-		left: 0;
-		background-color: #fff;
-		border-top: 0;
-		border: 1px solid #d9d9d9;
-		border-top: 0;
-		font-size: 14px;
-		padding: 10px 0px 5px 0px;
-		@media (max-width: 1024px) {
-			font-size: 18px;
-		}
-	}
-	// .select__option
-	&__option {
-		cursor: pointer;
-		padding: 5px 15px;
-		margin: 0px 0px 0px 0px;
-		@media (min-width: 992px) {
-			&:hover {
-				background: #d9d9d9;
-			}
-		}
-	}
-	&._active {
-		z-index: 5;
-		.select__value {
-			&:before {
-				transform: rotate(-180deg);
-			}
-		}
-		.select__options {
-			display: block;
-		}
-	}
+  position: relative;
+  // .select__item
+  &__item {
+    position: relative;
+  }
+  // .select__title
+  &__title {
+    color: #000;
+    border: 1px solid #d9d9d9;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    @media (max-width: 1024px) {
+      font-size: 18px;
+    }
+  }
+  // .select__value
+  &__value {
+    display: flex;
+    font-size: 14px;
+    height: 30px;
+    padding: 0px 15px;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    span {
+      height: 1em;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+    &:before {
+      content: "";
+      display: inline-block;
+      transition: all 0.3s ease 0s;
+      width: 11px;
+      height: 7px;
+      background: url("../img/icons/select.svg") center / 100% no-repeat;
+    }
+  }
+  &__input {
+    width: 100%;
+    background-color: transparent;
+    height: 100%;
+  }
+  // .select__options
+  &__options {
+    color: #000;
+    display: none;
+    position: absolute;
+    top: 29px;
+    border-radius: 0 0 4px 4px;
+    min-width: 100%;
+    left: 0;
+    background-color: #fff;
+    border-top: 0;
+    border: 1px solid #d9d9d9;
+    border-top: 0;
+    font-size: 14px;
+    padding: 10px 0px 5px 0px;
+    @media (max-width: 1024px) {
+      font-size: 18px;
+    }
+  }
+  // .select__option
+  &__option {
+    cursor: pointer;
+    padding: 5px 15px;
+    margin: 0px 0px 0px 0px;
+    @media (min-width: 992px) {
+      &:hover {
+        background: #d9d9d9;
+      }
+    }
+  }
+  &._active {
+    z-index: 5;
+    .select__value {
+      &:before {
+        transform: rotate(-180deg);
+      }
+    }
+    .select__options {
+      display: block;
+    }
+  }
+}
+//</SELECT>====================================================================================================
+
+//Lang====================================================================================================
+.lang {
+  display: flex;
+  padding: 0 28px;
+  height: 40px;
+  position: relative;
+  &__btn {
+    display: none;
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    li {
+      & + li {
+        margin-left: 28px;
+      }
+      a {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.7);
+        transition: all 0.3s ease-in 0s;
+        &:hover {
+          color: #fff;
+        }
+        &._active {
+          color: #fff;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+  @media (min-width: 1024px) {
+    padding: 0;
+    height: 40px;
+    &__btn {
+      display: flex;
+      align-items: center;
+      color: #fff;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      padding: 5px 24px 5px 5px;
+      position: relative;
+      &:after {
+        position: absolute;
+        content: "";
+        width: 20px;
+        height: 20px;
+        top: 10px;
+        right: 0;
+        background: url("../img/icons/caret.svg") center no-repeat;
+      }
+    }
+    ul {
+      width: 40px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all .3s ease 0s;
+      position: absolute;
+      bottom: 52px;
+      right: 0;
+      background: #da002b;
+      padding: 20px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      li {
+        display: block;
+        width: 100%;
+        height: 22px;
+        & + li {
+          margin-left: 0;
+          margin-top: 14px;
+        }
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 22px;
+        }
+      }
+    }
+    &._active {
+      ul {
+        opacity: 1;
+        visibility: visible;
+        bottom: 42px;
+      }
+      .lang {
+        &__btn {
+          &:after {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+  }
 }
 //</SELECT>====================================================================================================
 

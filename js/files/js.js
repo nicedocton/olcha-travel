@@ -1,3 +1,16 @@
+// кнопка выбора языка
+let lang_icon = document.querySelector('.lang__btn');
+let lang_menu = document.querySelector('.lang');
+lang_icon.addEventListener("click", function (e) {
+	e.preventDefault();
+	lang_menu.classList.toggle('_active');
+});
+document.documentElement.addEventListener("click", function (e) {
+	if (!e.target.closest('.lang')) {
+		lang_menu.classList.remove('_active');
+	}
+});
+
 jQuery(document).ready(function ($) {
 	//initialise Stellar.js
 	$(window).stellar();
@@ -103,23 +116,20 @@ jQuery(document).ready(function ($) {
 		dataslide = $(this).attr('data-slide');
 		goToByScroll(dataslide);
 		$('body').removeClass('noscroll');
-		$("#start").trigger("play"); // plays the audio
+		$("#start").get(0).volume = 0;
+		$("#start").trigger("play");
+		$("#start").animate({
+			volume: 1
+		}, 1000);
 		$(".clickon").remove();
+		$('.main-loader').fadeOut();
 		setTimeout(
 			function () {
-				$("#topbar").fadeIn('fast');
 				$(".navigation").fadeIn('fast')
 			}, 1500);
 		
 		setTimeout(
 			function () {
-				$("#1920s").get(0).volume = 0;
-				$("#1920s").trigger("play");
-				$("#1920s").animate({
-					volume: 1
-				}, 1000); // puts the volume to 1 in 1000 ms
-				
-				$("#topbar").fadeIn('fast');
 				if ($('#mute').hasClass('muted')) {
 					$('audio.active').trigger("mute");
 					$('audio').animate({
