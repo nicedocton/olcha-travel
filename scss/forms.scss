@@ -181,6 +181,7 @@
       line-height: 20px;
       padding: 5px 24px 5px 5px;
       position: relative;
+      transition: all 0.3s ease 0s;
       &:after {
         position: absolute;
         content: "";
@@ -189,6 +190,7 @@
         top: 10px;
         right: 0;
         background: url("../img/icons/caret.svg") center no-repeat;
+        transition: all 0.3s ease 0s;
       }
     }
     ul {
@@ -236,6 +238,15 @@
       }
     }
   }
+
+  body._active & {
+    &__btn {
+      color: #111111;
+      &:after {
+        background: url("../img/icons/caret-black.svg") center no-repeat;
+      }
+    }
+  }
 }
 //</SELECT>====================================================================================================
 
@@ -267,49 +278,24 @@ textarea.input {
 //<CHECK (chk+tab)>====================================================================================================
 .checkbox {
 	position: relative;
-	// .checkbox__input
+  cursor: pointer;
 	&__input {
 		position: absolute;
 		width: 0;
 		height: 0;
 		opacity: 0;
 		visibility: hidden;
-		&:checked + .checkbox__text:before {
-			background: #fff url("../img/icons/check.svg") center no-repeat;
+		&:checked + .checkbox__bg,
+    ._active .checkbox__bg {
+			background: #fff url("../img/checkbox-active.svg") center no-repeat;
 		}
 	}
-	// .checkbox__text
-	&__text {
-		display: inline-flex;
-		align-items: center;
-		position: relative;
-		font-size: 16px;
-		color: #ffffff;
-		letter-spacing: -0.3px;
-		line-height: calc(20 / 16);
-		cursor: pointer;
-		&:before {
-			content: "";
-			align-self: flex-start;
-			margin: 0px 14px 0px 0px;
-			flex: 0 0 20px;
-			left: 0;
-			top: 0;
-			width: 20px;
-			height: 18px;
-			background: #fff;
-			border: 1px solid #a7a9ac;
-		}
-	}
-	a {
-		color: #fff;
-		text-decoration: underline;
-		@media (min-width: 992px) {
-			&:hover {
-				text-decoration: none;
-			}
-		}
-	}
+  &__bg {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url("../img/checkbox.svg") center no-repeat;
+  }
 	&._error {
 		.checkbox__text {
 			&:before {

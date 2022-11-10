@@ -85,9 +85,6 @@
 			e = b.length;
 			h();
 			if (f.showPercentage) {
-				$('#round').val("Начать путешествие").removeClass('disabled');
-				$('a.button0').removeClass('disabled');
-				$('#mute').fadeIn();
 			}
 			if (f.debugMode) {
 				var d = o()
@@ -114,6 +111,7 @@
 		}
 	};
 	a.fn.jpreLoader = function(b, c) {
+		$('.main-loader').fadeOut('fast');
 		if (b) {
 			a.extend(f, b)
 		}
