@@ -11,9 +11,32 @@ document.documentElement.addEventListener("click", function (e) {
 	}
 });
 
-$(window).scroll(function() {
+var isScroll;
+var lastScroll;
+var scrollDir;
+
+$(window).scroll(function(e) {
+	
+	e.preventDefault();
 	
 	var $body = $('body');
+	var $fullHeight = window.innerHeight;
+	var $lastScroll = window.scrollY
+	
+	checkScrolling()
+	
+	if(scrollDir === 'bottom') {
+		window.scroll(1000,1000)
+	} else {
+		window.scroll(0,0)
+	}
+	
+	// if(scrollDir === 'bottom') {
+	// 	console.log('bottom ' + Number($lastScroll) + 1000)
+	// } else {
+	// 	console.log(Number($lastScroll) + 1)
+	// }
+	
 	
 	$("#slide1").each(function(){
 		var bottom_of_screen = $(window).scrollTop() + window.innerHeight;
@@ -26,3 +49,13 @@ $(window).scroll(function() {
 		}
 	});
 });
+
+function checkScrolling () {
+	let headerHeight = 100
+	if (typeof window !== 'undefined') {
+		headerHeight = document.getElementById('header')?.getBoundingClientRect().height
+	}
+	scrollDir = lastScroll > window.scrollY ? 'top' : 'bottom'
+	lastScroll = window.scrollY
+	isScroll = window.scrollY > headerHeight
+}

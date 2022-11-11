@@ -18,9 +18,9 @@ $fontFamily: "Raleway";
 //<ПЕРЕМЕННЫЕ>===========================================================================================================
 $minWidth: 320px;
 $maxWidth: 1920;
-$maxWidthContainer: 1224;
-$md1: $maxWidthContainer + 40;
-$md2: 991.98;
+$maxWidthContainer: 1264;
+$md1: $maxWidthContainer;
+$md2: 1024.98;
 $md3: 767.98;
 $md4: 479.98;
 //</ПЕРЕМЕННЫЕ>===========================================================================================================
@@ -46,10 +46,6 @@ body {
 .wrapper {
 	width: 100%;
 	min-height: 100%;
-	overflow: hidden;
-	display: flex;
-	flex-direction: column;
-  background: transparent;
   position: relative;
   z-index: 2;
 	&._loaded {
@@ -63,14 +59,7 @@ body {
 	margin: 0 auto;
   padding: 0 20px;
 	@media (max-width: $md1+px) {
-		max-width: 970px;
-	}
-	@media (max-width: $md2+px) {
-		max-width: 750px;
-	}
-	@media (max-width: $md3+px) {
-		max-width: none;
-		padding: 0 10px;
+		max-width: 1264px;
 	}
 }
 //</ОСНОВНАЯ СЕТКА>===========================================================================================================
@@ -168,18 +157,32 @@ body {
     width: 100%;
     max-width: 620px;
     &__form {
-      width: 434px;
     }
     &__title {
+      width: 100%;
+      max-width: 520px;
       font-weight: 800;
       font-size: 40px;
       line-height: 40px;
       color: #EB1537;
       margin-bottom: 24px;
+      span {
+        color: #111111;
+      }
+    }
+    &__subtitle {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      color: #999999;
+      margin-top: -8px;
+      margin-bottom: 24px;
     }
     &__text {
+      width: 434px;
+      min-height: 200px;
       max-height: 373px;
-      overflow-y: scroll;
+      overflow-y: auto;
     }
   }
   .btn-links {
@@ -191,6 +194,11 @@ body {
   .bg-content {
     width: 624px;
     height: 400px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 }
 
@@ -207,6 +215,9 @@ body {
   cursor: pointer;
   &._active {
     border: 1px solid #EB1537;
+  }
+  &:hover {
+    border: 1px solid #e7919f;
   }
   & + .checkbox__block {
     margin-top: 8px;
@@ -228,6 +239,168 @@ body {
   }
 }
 
+.tourList {
+  &__item {
+    display: flex;
+    padding: 12px 16px;
+    gap: 8px;
+    border: 1px solid #E8E8E8;
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    &:hover {
+      border: 1px solid #e7919f;
+    }
+    & + .tourList__item {
+      margin-top: 8px;
+    }
+    &._active {
+      border: 1px solid #EB1537;
+    }
+  }
+}
+
+.icon-rate {
+  margin-left: 4px;
+  display: block;
+  width: 80px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  &._rate5 {
+    background-image: url("../img/rate/5.svg");
+  }
+  &._rate4 {
+    background-image: url("../img/rate/4.svg");
+  }
+  &._rate3 {
+    background-image: url("../img/rate/3.svg");
+  }
+}
+
+.estimated-expenses {
+  &__title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #111111;
+    margin-bottom: 8px;
+  }
+  &__text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    color: #999999;
+    p {
+      margin-bottom: 0;
+      p + p {
+        margin-top: 1em;
+      }
+    }
+  }
+}
+
+.final-form {
+  &__title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #111111;
+    margin-bottom: 16px;
+  }
+  &__row {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__col {
+    width: 100%;
+    &._sm {
+      flex: 1 0 134px;
+    }
+  }
+}
+
+.payment {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__inner {
+    width: 640px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__title {
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #EB1537;
+    margin-bottom: 24px;
+  }
+  &__text {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #111111;
+    margin-bottom: 16px;
+    width: 444px;
+    text-align: center;
+  }
+  &__type {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    width: 444px;
+  }
+  &__btn {
+    display: flex;
+    width: calc(50% - 4px);
+    border: 2px solid #E8E8E8;
+    border-radius: 12px;
+    gap: 12px;
+    background-color: transparent;
+    height: 70px;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 19px;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      border: 2px solid #e7919f;
+    }
+    span {
+      display: block;
+      width: 30px;
+      height: 30px;
+      background-image: url("../img/radio.svg");
+      background-repeat: no-repeat;
+      background-size: 30px;
+      background-position: 0 0;
+    }
+    img {
+      width: auto;
+      height: 35px;
+    }
+    &._active {
+      border-color: #EB1537;
+      span {
+        background-image: url("../img/radio-active.svg");
+      }
+    }
+  }
+}
+
 .slide {
   transition: all 0.5s ease 0s;
   position: relative;
@@ -239,7 +412,6 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
-
 
 @keyframes scaling{
   0%, 100%{
@@ -253,6 +425,31 @@ body {
   50%{
     transform: scale(1);
     background-color: #da002b;
+  }
+}
+
+@media (max-width: 1200px) {
+  .section-inner {
+    .content {
+      width: 50%;
+    }
+    .bg-content {
+      width: 50%;
+      height: auto;
+    }
+  }
+}
+@media (max-width: $md2+px) {
+  .section-inner {
+    justify-content: center;
+    .content {
+      width: 90%;
+      text-align: center;
+    }
+    .btn-links {
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
 
