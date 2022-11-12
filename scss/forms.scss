@@ -14,12 +14,52 @@
   backdrop-filter: blur(5px);
   white-space: nowrap;
   transition: all 0.3s ease 0s;
+  &.btn-simple {
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    padding: 12px 16px;
+    height: 44px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #111111;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  &.btn-red {
+    background: #EB1537;
+    border: 1px solid #EB1537;
+    padding: 12px 16px;
+    height: 44px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #ffffff;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
 	@media (min-width: 992px) {
 		&:hover {
       background: #FFFFFF;
       backdrop-filter: blur(0);
       color: #000000;
 		}
+    &.btn-simple {
+      &:hover {
+        background: #eaeaea;
+        backdrop-filter: blur(0);
+        color: #000000;
+      }
+    }
+    &.btn-red {
+      &:hover {
+        background: #e7919f;
+        backdrop-filter: blur(0);
+        color: #ffffff;
+      }
+    }
 	}
   @media (max-width: 767.98px) {
     padding: 10px 16px;
@@ -235,9 +275,10 @@ textarea.input {
     height: 0;
     opacity: 0;
     visibility: hidden;
-    &:checked + .checkbox__bg,
-    ._active .checkbox__bg {
+    &:checked + .radio__bg,
+    ._active .radio__bg {
       background: #fff url("../img/radio-active.svg") center no-repeat;
+      background-size: 20px 20px;
     }
   }
   &__bg {
@@ -245,6 +286,7 @@ textarea.input {
     width: 20px;
     height: 20px;
     background: url("../img/radio.svg") center no-repeat;
+    background-size: 20px 20px;
   }
   &__text {
     font-weight: 500;
