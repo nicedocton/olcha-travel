@@ -620,7 +620,6 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
   overflow: hidden;
   @media(min-width: 1200px) {
     background: none!important;
@@ -646,7 +645,6 @@ body {
   background-position: center!important;
   background-repeat: no-repeat!important;
   background-size: cover!important;
-  background-attachment: fixed!important;
   &:after {
     display: block;
     content: "";
@@ -670,7 +668,6 @@ body {
     background-position: center!important;
     background-repeat: no-repeat!important;
     background-size: cover!important;
-    background-attachment: fixed!important;
     &:after {
       display: block;
       content: "";

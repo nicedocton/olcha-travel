@@ -40,6 +40,18 @@
       }
     }
   }
+  @media (max-width: 1200px) {
+    &.dark-menu {
+      .footer {
+        &__copy {
+          color: #ffffff;
+          a {
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
 
   @media (max-width: 450px) {
     &__copy {
