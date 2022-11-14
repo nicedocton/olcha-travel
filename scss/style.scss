@@ -292,6 +292,10 @@ body {
   @media (max-width: $md4+px) {
     padding-right: 30px;
   }
+  @media (max-height: 700px) {
+    padding-top: 76px;
+    padding-bottom: 76px;
+  }
 }
 
 .navigation {
