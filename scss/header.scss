@@ -46,20 +46,43 @@
     color: #ffffff;
   }
 
-  body._active & {
-    &__logo, &__phone {
-      svg {
-        fill: #EB1537;
+  &.dark-menu {
+   .header {
+     &__logo, &__phone {
+       svg {
+         fill: #EB1537;
+       }
+     }
+     &__geo {
+       color: #111111;
+       svg {
+         fill: #111111;
+       }
+     }
+     &__phone {
+       color: #EB1537;
+     }
+   }
+  }
+
+  @media (max-width: 1200px) {
+    &.dark-menu {
+      .header {
+        &__logo, &__phone {
+          svg {
+            fill: #ffffff;
+          }
+        }
+        &__geo {
+          color: #ffffff;
+          svg {
+            fill: #ffffff;
+          }
+        }
+        &__phone {
+          color: #ffffff;
+        }
       }
-    }
-    &__geo {
-      color: #111111;
-      svg {
-        fill: #111111;
-      }
-    }
-    &__phone {
-      color: #EB1537;
     }
   }
 

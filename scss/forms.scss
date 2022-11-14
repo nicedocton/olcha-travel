@@ -40,6 +40,11 @@
     align-items: center;
     justify-content: center;
   }
+  &._active {
+    background: #FFFFFF;
+    backdrop-filter: blur(0);
+    color: #000000;
+  }
 	@media (min-width: 992px) {
 		&:hover {
       background: #FFFFFF;
@@ -258,6 +263,7 @@ textarea.input {
     color: #111111;
     display: flex;
     align-items: center;
+    text-align: left;
   }
 }
 //</CHECK>====================================================================================================
@@ -295,6 +301,7 @@ textarea.input {
     color: #111111;
     display: flex;
     align-items: center;
+    text-align: left;
   }
 }
 //</RADIO>====================================================================================================

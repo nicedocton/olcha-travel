@@ -30,11 +30,13 @@
     }
   }
 
-  body._active & {
-    &__copy {
-      color: #111111;
-      a {
+  &.dark-menu {
+    .footer {
+      &__copy {
         color: #111111;
+        a {
+          color: #111111;
+        }
       }
     }
   }

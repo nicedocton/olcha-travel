@@ -213,10 +213,83 @@ body {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      border-radius: 16px;
+    }
+  }
+  @media (max-width: 1200px) {
+    .content {
+      position: relative;
+      z-index: 2;
+      width: 90%;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 20px;
+      #slide1 & {
+        background-color: transparent;
+      }
+      .h1 {
+        text-align: center;
+      }
+      &__text, &__btns {
+        margin: 16px auto 0;
+      }
+      &__btns {
+        justify-content: center;
+      }
+    }
+    .bg-content {
+      display: none;
+    }
+  }
+  @media (max-width: $md2+px) {
+    .btn-links {
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  @media (max-width: 767px) {
+    .content {
+      width: 100%;
+      padding: 12px;
+      &__title {
+        font-size: 28px;
+        line-height: 1.2;
+        margin-bottom: 12px;
+      }
+      &__subtitle {
+        margin-bottom: 12px;
+      }
+      &__form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        overflow: hidden;
+      }
+      &__text {
+        width: 100%;
+        max-width: 434px;
+        margin-top: 0;
+        form {
+          width: 100%;
+          display: block;
+          overflow: hidden;
+        }
+      }
+      &__btns {
+        width: 100%;
+      }
     }
   }
   @media (max-width: $md4+px) {
-    padding-right: 20px;
+    padding-right: 30px;
   }
 }
 
@@ -262,6 +335,9 @@ body {
       }
     }
   }
+  @media (max-width: $md4+px) {
+    padding-right: 0;
+  }
 }
 
 .checkbox__block {
@@ -300,12 +376,38 @@ body {
     margin-bottom: 16px;
     max-height: 40px;
     overflow: hidden;
+    text-align: left;
   }
   &-price {
     font-weight: 700;
     font-size: 16px;
     line-height: 24px;
     color: #111111;
+    text-align: left;
+  }
+  @media (max-width: 600px) {
+    padding: 6px 8px;
+    gap: 8px;
+    &-image {
+      img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+    &-text {
+      margin-bottom: 8px;
+    }
+    &-description {
+      flex: 1;
+    }
+  }
+  @media (max-width: $md4+px) {
+    &-image {
+      img {
+        width: 70px;
+        height: 70px;
+      }
+    }
   }
 }
 
@@ -405,6 +507,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
+  position: relative;
   &__inner {
     width: 640px;
     display: flex;
@@ -469,18 +573,121 @@ body {
       }
     }
   }
+  @media (max-width: 1200px) {
+    &__inner {
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 20px;
+    }
+  }
+  @media (max-width: $md3+px) {
+    &__inner {
+      padding: 8px;
+      width: 100%;
+      max-width: 640px;
+    }
+    &__title {
+      font-size: 28px;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    &__text {
+      margin-bottom: 12px;
+    }
+    &__type {
+      flex-direction: column;
+    }
+    &__btn {
+      width: 100%;
+    }
+    .content__btns {
+      width: 100%;
+      max-width: 444px;
+    }
+  }
+  @media (max-width: 600px) {
+    &__btns, &__type {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
 }
 
 .slide {
   transition: all 0.5s ease 0s;
   position: relative;
   background-color: #FFFFFF;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: hidden;
+  @media(min-width: 1200px) {
+    background: none!important;
+  }
+  @media (max-width: 1200px) {
+    &:after {
+      display: block;
+      content: "";
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 58.85%);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      border-radius: 0;
+      z-index: 1;
+      top: 0;
+      left: 0;
+    }
+  }
 }
 
 #slide1 {
-  background: url(../img/bg1.jpg) center center no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  background-image: url('../img/bg/1.jpg')!important;
+  background-position: center!important;
+  background-repeat: no-repeat!important;
+  background-size: cover!important;
+  background-attachment: fixed!important;
+  &:after {
+    display: block;
+    content: "";
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 58.85%);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0;
+    z-index: 1;
+  }
+  .section-inner {
+    z-index: 2;
+    position: relative;
+  }
+}
+#slide9 {
+  @media (max-width: 1200px) {
+    background-image: url('../img/bg/6.jpg')!important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+    background-attachment: fixed!important;
+    &:after {
+      display: block;
+      content: "";
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 58.85%);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 0;
+      z-index: 1;
+    }
+    .section-inner {
+      z-index: 2;
+      position: relative;
+    }
+  }
 }
 
 @keyframes scaling{
@@ -498,29 +705,6 @@ body {
   }
 }
 
-@media (max-width: 1200px) {
-  .section-inner {
-    .content {
-      width: 50%;
-    }
-    .bg-content {
-      width: 50%;
-      height: auto;
-    }
-  }
-}
-@media (max-width: $md2+px) {
-  .section-inner {
-    justify-content: center;
-    .content {
-      width: 90%;
-      text-align: center;
-    }
-    .btn-links {
-      align-items: center;
-      justify-content: center;
-    }
-  }
-}
+
 
 //</ОСНОВНОЙ БЛОК>====================================================================================================
