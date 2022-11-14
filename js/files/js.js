@@ -77,6 +77,7 @@ jQuery(document).ready(function ($) {
 	let button = $('.btn');
 	let mywindow = $(window);
 	let htmlbody = $('html,body');
+	let logo = $('.header__logo');
 	
 	slide.waypoint(function (event, direction) {
 		let dataslide = $(this).attr('data-slide');
@@ -117,6 +118,12 @@ jQuery(document).ready(function ($) {
 			scrollTop: $('.slide[data-slide="' + dataslide + '"]').offset().top
 		}, 2000, 'easeInOutQuint');
 	}
+	
+	logo.click(function (e) {
+		e.preventDefault();
+		let dataslide = $(this).attr('data-slide');
+		goToByScroll(dataslide);
+	})
 	
 	links.click(function (e) {
 		e.preventDefault();
